@@ -31,7 +31,7 @@
 <body id="page-top">
 ​
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Cart</a>
+    <a class="navbar-brand mx-auto" href="index.html">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -42,32 +42,134 @@
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
-        <div class="col-lg-7 my-auto">
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary">Produce</button>
-            <button type="button" class="btn btn-primary">Dairy</button>
-            <button type="button" class="btn btn-primary">Meat/Fish</button>
-            <button type="button" class="btn btn-primary">Grains</button>
-            <button type="button" class="btn btn-primary">Frozen</button>
-            <button type="button" class="btn btn-primary">Current Cart</button>
+          <div class="col-lg-7 my-auto">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-primary" onclick="produceSwitch()">Produce 🥦</button>
+                  <button type="button" class="btn btn-primary" onclick="dairySwitch()">Dairy 🐄</button>
+                  <button type="button" class="btn btn-primary" onclick="meatSwitch()">Meat/Fish 🍖</button>
+                  <button type="button" class="btn btn-primary" onclick="grainSwitch()">Grains 🌾</button>
+                  <button type="button" class="btn btn-primary" onclick="frozenSwitch()">Frozen 🥶</button>
+                  <button type="button" class="btn btn-primary">Search 🔎</button>
+              </div>
+
+              <div class="header-content mx-auto" id="produce" style="display: block">
+                  <h1 class="mb-5"> </h1>
+                  <h1 class="mb-5"> 📈 Trending Produce </h1>
+                  <h1 class="mb-5">🍌 Bananas <span class="badge badge-danger" onclick="decrement('ban')">-</span><span class="badge badge-secondary" id="ban">0</span><span class="badge badge-success" onclick="increment('ban')">+</span></h1>
+                  <h1 class="mb-5">🍎 Apples <span class="badge badge-danger" onclick="decrement('app')">-</span><span class="badge badge-secondary" id="app">0</span><span class="badge badge-success" onclick="increment('app')">+</span></h1>
+                  <h1 class="mb-5">🍇 Grapes <span class="badge badge-danger" onclick="decrement('grap')">-</span><span class="badge badge-secondary" id="grap">0</span><span class="badge badge-success" onclick="increment('grap')">+</span></h1>
+                  <h1 class="mb-5">🍓 Strawberry <span class="badge badge-danger" onclick="decrement('stra')">-</span><span class="badge badge-secondary" id="stra">0</span><span class="badge badge-success" onclick="increment('stra')">+</span></h1>
+                  <h1 class="mb-5">🍊 Oranges <span class="badge badge-danger" onclick="decrement('oran')">-</span><span class="badge badge-secondary" id="oran">0</span><span class="badge badge-success" onclick="increment('oran')">+</span></h1>
+                  <h1 class="mb-5">🍉 Watermelon <span class="badge badge-danger" onclick="decrement('wate')">-</span><span class="badge badge-secondary" id="wate">0</span><span class="badge badge-success" onclick="increment('wate')">+</span></h1>
+              </div>
+              <div class="header-content mx-auto" id="dairy" style="display: none">
+                  <h1 class="mb-5"> </h1>
+                  <h1 class="mb-5"> 📈 Trending Dairy </h1>
+                  <h1 class="mb-5">🥛 Milk <span class="badge badge-danger" onclick="decrement('milk')">-</span><span class="badge badge-secondary" id="milk">0</span><span class="badge badge-success" onclick="increment('milk')">+</span></h1>
+                  <h1 class="mb-5">🧈 Butter <span class="badge badge-danger" onclick="decrement('but')">-</span><span class="badge badge-secondary" id="but">0</span><span class="badge badge-success" onclick="increment('but')">+</span></h1>
+                  <h1 class="mb-5">🧀 Cheddar <span class="badge badge-danger" onclick="decrement('ched')">-</span><span class="badge badge-secondary" id="ched">0</span><span class="badge badge-success" onclick="increment('ched')">+</span></h1>
+                  <h1 class="mb-5">🧀 American <span class="badge badge-danger" onclick="decrement('amer')">-</span><span class="badge badge-secondary" id="amer">0</span><span class="badge badge-success" onclick="increment('amer')">+</span></h1>
+                  <h1 class="mb-5">🧀 Swiss <span class="badge badge-danger" onclick="decrement('swis')">-</span><span class="badge badge-secondary" id="swis">0</span><span class="badge badge-success" onclick="increment('swis')">+</span></h1>
+                  <h1 class="mb-5">🥄 Yogurt <span class="badge badge-danger" onclick="decrement('yogu')">-</span><span class="badge badge-secondary" id="yogu">0</span><span class="badge badge-success" onclick="increment('yogu')">+</span></h1>
+              </div>
+              <div class="header-content mx-auto" id="meatfish" style="display: none">
+                  <h1 class="mb-5"> </h1>
+                  <h1 class="mb-5"> 📈 Trending Meat/Fish </h1>
+                  <h1 class="mb-5">🥓 Pork <span class="badge badge-danger" onclick="decrement('pork')">-</span><span class="badge badge-secondary" id="pork">0</span><span class="badge badge-success" onclick="increment('pork')">+</span></h1>
+                  <h1 class="mb-5">🍣  Tuna <span class="badge badge-danger" onclick="decrement('tuna')">-</span><span class="badge badge-secondary" id="tuna">0</span><span class="badge badge-success" onclick="increment('tuna')">+</span></h1>
+                  <h1 class="mb-5">🍗 Chicken <span class="badge badge-danger" onclick="decrement('chic')">-</span><span class="badge badge-secondary" id="chic">0</span><span class="badge badge-success" onclick="increment('chic')">+</span></h1>
+                  <h1 class="mb-5">🍔 Beef <span class="badge badge-danger" onclick="decrement('beef')">-</span><span class="badge badge-secondary" id="beef">0</span><span class="badge badge-success" onclick="increment('beef')">+</span></h1>
+                  <h1 class="mb-5">🦃 Turkey <span class="badge badge-danger" onclick="decrement('turk')">-</span><span class="badge badge-secondary" id="turk">0</span><span class="badge badge-success" onclick="increment('turk')">+</span></h1>
+                  <h1 class="mb-5">🍤 Shrimp <span class="badge badge-danger" onclick="decrement('shri')">-</span><span class="badge badge-secondary" id="shri">0</span><span class="badge badge-success" onclick="increment('shri')">+</span></h1>
+              </div>
+              <div class="header-content mx-auto" id="grains" style="display: none">
+                  <h1 class="mb-5"> </h1>
+                  <h1 class="mb-5"> 📈 Trending Grains </h1>
+                  <h1 class="mb-5">🌾 Oats <span class="badge badge-danger" onclick="decrement('oat')">-</span><span class="badge badge-secondary" id="oat">0</span><span class="badge badge-success" onclick="increment('oat')">+</span></h1>
+                  <h1 class="mb-5">🍞 Bread <span class="badge badge-danger" onclick="decrement('bre')">-</span><span class="badge badge-secondary" id="bre">0</span><span class="badge badge-success" onclick="increment('bre')">+</span></h1>
+                  <h1 class="mb-5">🥞 Pancakes <span class="badge badge-danger" onclick="decrement('panc')">-</span><span class="badge badge-secondary" id="panc">0</span><span class="badge badge-success" onclick="increment('panc')">+</span></h1>
+                  <h1 class="mb-5">🧇 Waffles <span class="badge badge-danger" onclick="decrement('waff')">-</span><span class="badge badge-secondary" id="waff">0</span><span class="badge badge-success" onclick="increment('waff')">+</span></h1>
+                  <h1 class="mb-5">🍝 Spaghetti <span class="badge badge-danger" onclick="decrement('spag')">-</span><span class="badge badge-secondary" id="spag">0</span><span class="badge badge-success" onclick="increment('spag')">+</span></h1>
+                  <h1 class="mb-5">🍰 Cakes <span class="badge badge-danger" onclick="decrement('cake')">-</span><span class="badge badge-secondary" id="cake">0</span><span class="badge badge-success" onclick="increment('cake')">+</span></h1>
+              </div>
+              <div class="header-content mx-auto" id="frozen" style="display: none">
+                  <h1 class="mb-5"> </h1>
+                  <h1 class="mb-5"> 📈 Trending Frozen </h1>
+                  <h1 class="mb-5">🍕 Pizza <span class="badge badge-danger" onclick="decrement('piz')">-</span><span class="badge badge-secondary" id="piz">0</span><span class="badge badge-success" onclick="increment('piz')">+</span></h1>
+                  <h1 class="mb-5">🌭 Hot Dogs <span class="badge badge-danger" onclick="decrement('hot')">-</span><span class="badge badge-secondary" id="hot">0</span><span class="badge badge-success" onclick="increment('hot')">+</span></h1>
+                  <h1 class="mb-5">🍨 Ice Cream <span class="badge badge-danger" onclick="decrement('icm')">-</span><span class="badge badge-secondary" id="icm">0</span><span class="badge badge-success" onclick="increment('icm')">+</span></h1>
+                  <h1 class="mb-5">🍸 Vodka <span class="badge badge-danger" onclick="decrement('vod')">-</span><span class="badge badge-secondary" id="vod">0</span><span class="badge badge-success" onclick="increment('vod')">+</span></h1>
+                  <h1 class="mb-5">🧊 Pack Ice <span class="badge badge-danger" onclick="decrement('ice')">-</span><span class="badge badge-secondary" id="ice">0</span><span class="badge badge-success" onclick="increment('ice')">+</span></h1>
+                  <h1 class="mb-5">🍧 Italian Ice <span class="badge badge-danger" onclick="decrement('ita')">-</span><span class="badge badge-secondary" id="ita">0</span><span class="badge badge-success" onclick="increment('ita')">+</span></h1>
+              </div>
+              <div class="btn-group">
+                  <button type="button" class="btn btn-primary" onclick="reset()">Clear Cart ❌</button>
+                  <button type="button" class="btn btn-primary">Add Cart to Inventory 🛒</button>
+                  <button type="button" class="btn btn-primary">Mobile Update  📲🔁</button>
+              </div>
+              <script>
+                  var p = document.getElementById("produce");
+                  var d = document.getElementById("dairy");
+                  var m = document.getElementById("meatfish");
+                  var g = document.getElementById("grains");
+                  var f = document.getElementById("frozen");
+                  function produceSwitch() {
+                      p.style.display = "block";
+                      d.style.display = "none";
+                      m.style.display = "none";
+                      g.style.display = "none";
+                      f.style.display = "none";
+                  }
+                  function dairySwitch() {
+                      p.style.display = "none";
+                      d.style.display = "block";
+                      m.style.display = "none";
+                      g.style.display = "none";
+                      f.style.display = "none";
+                  }
+                  function meatSwitch() {
+                      p.style.display = "none";
+                      d.style.display = "none";
+                      m.style.display = "block";
+                      g.style.display = "none";
+                      f.style.display = "none";
+                  }
+                  function grainSwitch() {
+                      p.style.display = "none";
+                      d.style.display = "none";
+                      m.style.display = "none";
+                      g.style.display = "block";
+                      f.style.display = "none";
+                  }
+                  function frozenSwitch() {
+                      p.style.display = "none";
+                      d.style.display = "none";
+                      m.style.display = "none";
+                      g.style.display = "none";
+                      f.style.display = "block";
+                  }
+                  function decrement(id) {
+                      num = Number.parseInt(document.getElementById(id).innerHTML) - 1;
+                      if (num >= 0) {
+                          document.getElementById(id).innerHTML = num;
+                      } else {
+                          document.getElementById(id).innerHTML = 0;
+                      }
+                  }
+                  function increment(id) {
+                      num = Number.parseInt(document.getElementById(id).innerHTML) + 1;
+                      document.getElementById(id).innerHTML = num;
+                  }
+                  function reset() {
+                      var all_foods = ["ban", "app", "grap", "stra", "oran", "wate", "milk", "but", "amer", "ched", "swis", "yogu", "pork", "beef", "chic", "shri", "turk", "tuna", "oat", "panc", "waff", "bre", "spag", "cake", "piz", "hot", "icm", "ice", "vod", "ita"];
+                      var i = 0;
+                      for (i; i < all_foods.length; i++) {
+                          var curr = document.getElementById(all_foods[i]);
+                          curr.innerHTML = 0;
+                      }
+                  }
+              </script>
           </div>
-          <div class="header-content mx-auto">
-            <h1 class="mb-5"> </h1>
-            <h1 class="mb-5"> PRODUCE </h1>
-            <h1 class="mb-5">Apples <span class="badge badge-danger">-</span><span class="badge badge-secondary">1</span><span class="badge badge-success">+</span></h1></h1>
-            <h1 class="mb-5">Carrots <span class="badge badge-danger">-</span><span class="badge badge-secondary">0</span><span class="badge badge-success">+</span></h1></h1>
-            <h1 class="mb-5">Grapes <span class="badge badge-danger">-</span><span class="badge badge-secondary">-1</span><span class="badge badge-success">+</span></h1></h1>
-            <h1 class="mb-5">Lemons <span class="badge badge-danger">-</span><span class="badge badge-secondary">2</span><span class="badge badge-success">+</span></h1></h1>
-            <h1 class="mb-5">Lettuce <span class="badge badge-danger">-</span><span class="badge badge-secondary">0</span><span class="badge badge-success">+</span></h1></h1>
-            <h1 class="mb-5">Lemons <span class="badge badge-danger">-</span><span class="badge badge-secondary">4</span><span class="badge badge-success">+</span></h1></h1>
-​
-          </div>
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary">Clear Cart</button>
-            <button type="button" class="btn btn-primary">Add Cart to Inventory</button>
-            <button type="button" class="btn btn-primary">Sync Changes</button>
-          </div>
-        </div>
         <div class="col-lg-5 my-auto">
           <div class="device-container">
               <div class="device">
