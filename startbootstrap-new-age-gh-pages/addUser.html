@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Users</title>
+  <title>Add User</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,32 +36,40 @@
       <div style="text-align: center" class="users_header">
         <h5> Users </h5>
       </div>
-      <div class="row h-100">
+      <div class="row">
         <div class="col-lg-7 my-auto">
-          <div class="header-content mx-auto">
-            <div class="card">
-            <img src="test_img.jpg" alt="John" style="width:100%">
-            <p><button>John Doe</button></p>
-          </div>
-        
-          </div>
+          <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+          <label for="vehicle1"> Jacob</label><br>
         </div>
-        <div class="col-lg-5 my-auto">
-          <!-- card coming -->
-          <div class="card">
-            <img src="test_img.jpg" alt="John" style="width:100%">
-            <p><button>John Doe</button></p>
-          </div>
-    
-        </div>
-        <div class="row add-sub">
-        <a href="addUser.html"><p><button>Add/Delete User</button></p></a>
-          </div>
       </div>
-
-
-
+      <div class="row">
+        <div class="col-lg-7 my-auto">
+          <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+          <label for="vehicle1"> Jason</label><br>
+        </div>
+      </div>
+      <div style="padding-top: 50px" class="row">
+        <ul style="padding-left: 450px" class="list-inline">
+          <li class="list-inline-item">
+            <p><button>Back</button></p>
+          </li>
+          <li class="list-inline-item">
+            <p><button>Delete User</button></p>
+          </li>
+          <li  class="list-inline-item">
+            <p><button>Add User</button></p>
+          </li>
+        </ul>
+      </div>
     </div>
+
+      <ul class="list-inline list-social">
+        <li class="list-inline-item social-twitter">
+          <a href="#">
+            <i class="fab"></i>
+          </a>
+        </li>
+      </ul>
   </header>
 
   
@@ -121,6 +129,7 @@
   .add-sub{
     text-align: center;
     margin: auto;
+
   }
 
   .card {
@@ -129,6 +138,11 @@
   max-height: 400px;
   margin: auto;
   text-align: center;
+}
+
+.row{
+  text-align: right;
+  
 }
 
 .title {
