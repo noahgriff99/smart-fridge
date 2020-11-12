@@ -28,7 +28,7 @@
 
 </head>
 
-<body id="page-top" onload="setTime()">
+<body id="page-top" onload="setTime(); scrollRecipes()">
 
 
   <header class="masthead">
@@ -186,9 +186,15 @@
   </style>
 
   <script>
-    var index = 1;
+    var index = 3;
 
     showSlides(index);
+
+    function scrollRecipes() {
+      setTimeout(scrollRecipes, 4000);
+      index = (index + 1) % 3;
+      showSlides(index);
+    }
 
     function showSlides(n) {
       var i;
