@@ -42,18 +42,24 @@
         </div>
         <div class="col-lg-5 my-auto">
           <div class="container">
-            <h1 class="mb-5 trending-header" style="font-size:70px">Trending &#128200;</h1>
+            <h1 class="mb-5 trending-header" style="font-size:70px; margin-top: 10px; box-sizing: border-box">Trending &#128200;</h1>
             <div class="pages">
+              <img src="img/smoothie.jpg" style="width: 40%"></img>
+              <br></br>
               <q>Suggested: Fruit Smoothie</q>
-              <p><i>Popular with users with fruit in inventory</i></p>
+              <p><i>Popular with users with fruit</i></p>
             </div>
 
             <div class="pages">
+              <img src="img/cookies.jpg" style="width: 40%"></img>
+              <br></br>
               <q>Suggested: Flourless Peanut Butter Cookies</q>
               <p><i>Popular with users in college</i></p>
             </div>
 
             <div class="pages">
+              <img src="img/biscuit.jpg" style="width: 40%"></img>
+              <br></br>
               <q>Suggested: Biscuits</q>
               <p><i>Popular for breakfast</i></p>
             </div>
@@ -78,23 +84,6 @@
               <a href="users.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:12px; left: 50%">Switch Users</a>
               <a href="cart.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:12px; left: 50%">Check Cart</a>
               <a href="inventory.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:12px; left: 50%">Check Inventory</a>
-              <!-- <li class="list-inline-item social-twitter">
-                <a href="users.html">
-                  <i class="fab" >
-                  	<img src="test_img.jpg" height="30" width="30">
-                  </i>
-                </a>
-              </li>
-              <li class="list-inline-item social-facebook">
-                <a href="cart.html">
-                  <i class="fab"></i>
-                </a>
-              </li>
-              <li class="list-inline-item social-google-plus">
-                <a href="inventory.html">
-                  <i class="fab"></i>
-                </a>
-              </li> -->
             </ul>
           </div>
       </div>
@@ -119,12 +108,14 @@
 
   <style>
     .container {
+      margin: auto;
       position: relative;
+      background:rgba(0,0,0,0.1);
+      opacity: 1;
     }
 
     .time {
       margin-top: 60px;
-      /* padding: 30px; */
       margin-right: 50px;
       font-size: 100px;
     }
@@ -135,8 +126,14 @@
 
     .pages {
       display: none;
-      padding: 80px;
+      padding: 40px;
       text-align: center;
+      background:rgba(0,0,0,0.4);
+      opacity: 1;
+    }
+
+    .next {
+      margin-right: 15px;
     }
 
     .prev, .next {
@@ -145,7 +142,7 @@
       top: 50%;
       width: auto;
       margin-top: 30px;
-      padding: 16px;
+      padding: 3%;
       color: #888;
       font-weight: bold;
       font-size: 20px;
