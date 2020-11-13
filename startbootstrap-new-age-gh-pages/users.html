@@ -34,29 +34,65 @@
   <header class="masthead">
     <div class="container h-100">
       <div style="text-align: center" class="users_header">
-        <h5> Users </h5>
+        <h5 style="padding-top: 10px"> Users </h5>
       </div>
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
             <div class="card">
             <img src="test_img.jpg" alt="John" style="width:100%">
-            <p><button>Jacob Doe</button></p>
+            <p><button class="button" data-toggle="modal" data-target="#exampleModal">Jacob Doe</button></p>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style ="color: black; text-align: left;">Unimplemented feature</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p style="color: black; text-align: left;">Feature is not implemented</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        
+
           </div>
         </div>
         <div class="col-lg-5 my-auto">
           <!-- card coming -->
           <div class="card">
             <img src="test_img.jpg" alt="John" style="width:100%">
-            <p><button>Jason Doe</button></p>
+            <p><button class="button" data-toggle="modal" data-target="#exampleModal">Jason Doe</button></p>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style ="color: black; text-align: left;">Unimplemented feature</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p style="color: black; text-align: left;">Feature is not implemented</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-    
+
         </div>
         <!-- <div class="row add-sub">
           <a style="text-align:center" href="addUser.html"><p><button type="button" id="updateButton" class="btn btn-primary">Add/Delete User</button></p></a>
-          
+
         </div> -->
         <div class="row add-sub">
           <ul class="list-inline list-social">
@@ -64,9 +100,9 @@
               <a href="addUser.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:12px; left: 50%">Add/Delete User</a>
               <a href="index.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:12px; left: 50%">Return to Homepage</a>
           </ul>
-          
+
       </div>
- 
+
         </div>
 
 
@@ -74,12 +110,12 @@
 
 
 
-      
+
 
     </div>
   </header>
 
-  
+
 
   <footer>
     <div class="container">
@@ -130,7 +166,7 @@
   font-size: 18px;
 }
 
-button {
+.button {
   border: none;
   outline: 0;
   display: inline-block;
