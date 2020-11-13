@@ -60,13 +60,13 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-50">
-                                <table id="productTable" class="table table-bordered table-condensed table-striped">
+                                <table id="itemTable" class="table table-bordered table-condensed table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Edit</th>
-                                            <th>Name</th>
-                                            <th>Amount</th>
-                                            <th>Delete</th>
+                                            <th style="color:white">Edit</th>
+                                            <th style="color:white">Name</th>
+                                            <th style="color:white">Amount</th>
+                                            <th style="color:white">Delete</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -76,151 +76,190 @@
                             <div class="form-group">
                                 <label for="addItem">Add item</label>
                                 <input type="email" class="form-control" id="addItem" aria-describedby="emailHelp"
-                                    placeholder="Enter item">
+                                       placeholder="Enter item">
                                 <label for="amount">Quantity</label>
                                 <input type="email" class="form-control" id="amount" aria-describedby="emailHelp"
-                                    placeholder="Enter item">
+                                       placeholder="Enter quantity">
                             </div>
                             <button type="button" id="updateButton" class="btn btn-primary"
-                                onclick="productUpdate();">Add</button>
+                                    onclick="itemUpdate();">
+                                Add
+                            </button>
                         </form>
 
                     </div>
                 </div>
 
                 <div style="text-align: right; padding-top:50%">
-                  <a href="index.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:13px; left: 50%;bottom: 0;">Return to Homepage</a>
+                    <a href="index.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:13px; left: 50%;bottom: 0;">Return to Homepage</a>
                 </div>
 
-                <script>
 
-                    var _row = null;
+                    <script>
 
-                    function productUpdate() {
-                        if ($("#updateButton").text() == "Update") {
-                            productUpdateInTable();
+                        function QueryStringToJSON() {
+                            var pairs = location.search.slice(1).split('&');
+
+                            var result = {};
+                            pairs.forEach(function(pair) {
+                                pair = pair.split('=');
+                                result[pair[0]] = decodeURIComponent(pair[1] || '');
+                            });
+                            for (var key in result) {
+                                var strvalue = result[key];
+                                var value = Number.parseInt(strvalue);
+                                if (value >= 1) {
+                                    if ($("#itemTable tbody").length == 0) {
+                                        $("#itemTable").append("<tbody></tbody>");
+                                    }
+
+                                    $("#itemTable tbody").append(
+                                    "<tr>" +
+                                    "<td>" +
+                                    "<button type='button' onclick='itemDisplay(this);' class='btn btn-dark'>" +
+                                    "<span class=\"glyphicon glyphicon-edit\" />🖊️" +
+                                    "</button>" +
+                                    "<td>" + key.fontcolor("white") + "</td>" +
+                                    "<td>" + strvalue.fontcolor("white") + "</td>" +
+                                    "<td>" +
+                                    "<button type='button' onclick='itemDelete(this);' class='btn btn-dark'>" +
+                                    "<span class='glyphicon glyphicon-remove' />❌" +
+                                    "</button>" +
+                                    "</td>" +
+                                    "</tr>");
+                                }
+                            }
+                            return JSON.parse(JSON.stringify(result));
+                           }
+
+                        var query_string = QueryStringToJSON();
+                        var string_query_string = JSON.stringify(query_string);
+                        var _row = null;
+
+                        var qs = QueryJSON();
+
+
+                        function itemUpdate() {
+                            if ($("#updateButton").text() == "Update") {
+                                itemUpdateInTable();
+                            }
+                            else {
+                                itemAddToTable();
+                            }
+
+                            // Clear form fields
+                            formClear();
+
                         }
-                        else {
-                            productAddToTable();
+
+                        function itemAddToTable() {
+                            // First check if a <tbody> tag exists, add one if not
+                            if ($("#itemTable tbody").length == 0) {
+                                $("#itemTable").append("<tbody></tbody>");
+                            }
+
+                            $("#itemTable tbody").append(
+                                "<tr>" +
+                                "<td>" +
+                                "<button type='button' onclick='itemDisplay(this);' class='btn btn-dark'>" +
+                                "<span class=\"glyphicon glyphicon-edit\" />🖊️" +
+                                "</button>" +
+                                "<td>" + $("#addItem").val().fontcolor("white") + "</td>" +
+                                "<td>" + $("#amount").val().fontcolor("white") + "</td>" +
+                                "<td>" +
+                                "<button type='button' onclick='itemDelete(this);' class='btn btn-dark'>" +
+                                "<span class='glyphicon glyphicon-remove' />❌" +
+                                "</button>" +
+                                "</td>" +
+                                "</tr>");
                         }
 
-                        // Clear form fields
-                        formClear();
+                        function itemBuildTableRow() {
+                            var ret = "<tr>" +
+                                "<td>" +
+                                "<button type='button' onclick='itemDisplay(this);' class='btn btn-dark'>" +
+                                "<span class='glyphicon glyphicon-edit' />🖊️" +
+                                "</button>" +
+                                "</td>" +
+                                "<td>" + $("#addItem").val().fontcolor("white") + "</td>" +
+                                "<td>" + $("#amount").val().fontcolor("white") + "</td>" +
+                                "<td>" +
+                                "<button type='button' onclick='itemDelete(this);' class='btn btn-dark'>" +
+                                "<span class='glyphicon glyphicon-remove' />❌" +
+                                "</button>" +
+                                "</td>" +
+                                "</tr>"
 
-                        // Focus to product name field
-                        $("#productname").focus();
-
-                    }
-
-                    function productAddToTable() {
-                        // First check if a <tbody> tag exists, add one if not
-                        if ($("#productTable tbody").length == 0) {
-                            $("#productTable").append("<tbody></tbody>");
+                            return ret;
                         }
 
-                        $("#productTable tbody").append(
-                            "<tr>" +
-                            "<td>" +
-                            "<button type='button' onclick='productDisplay(this);' class='btn btn-dark'>" +
-                            "<span class=\"glyphicon glyphicon-edit\" />U" +
-                            "</button>" +
-                            "<td>" + $("#addItem").val() + "</td>" +
-                            "<td>" + $("#amount").val() + "</td>" +
-                            "<td>" +
-                            "<button type='button' onclick='productDelete(this);' class='btn btn-dark'>" +
-                            "<span class='glyphicon glyphicon-remove' />X" +
-                            "</button>" +
-                            "</td>" +
-                            "</tr>");
+                        function itemUpdateInTable() {
+                            // Add changed product to table
+                            $(_row).after(itemBuildTableRow());
+
+                            // Remove old product row
+                            $(_row).remove();
+
+                            // Clear form fields
+                            formClear();
+
+                            // Change Update Button Text
+                            $("#updateButton").text("Add");
+                        }
+
+                        function itemDisplay(ctl) {
+                            _row = $(ctl).parents("tr");
+                            var cols = _row.children("td");
+                            $("#addItem").val($(cols[1]).text());
+                            $("#amount").val($(cols[2]).text());
+
+                            // Change Update Button Text
+                            $("#updateButton").text("Update");
+                        }
+
+                        function itemDelete(ctl) {
+                            $(ctl).parents("tr").remove();
+                        }
+
+                        function formClear() {
+                            $("#addItem").val("");
+                            $("#amount").val("");
+                        }
+
+
+                    </script>
+
+                    <!-- <h1 class="mb-5">Apples <span class="badge badge-secondary"></span></h1></h1>
+        <div class="header-content mx-auto">
+          <button class="btn btn-dark" type="button" id="10">
+            <span class="glyphicon glyphicon-thumbs-up"></span>
+            <span class="text">Liked</span>
+            <span class="badge like-badge">1</span>
+        </button>
+        <h1 class="mb-5">Carrots <span class="badge badge-secondary">8</span></h1></h1>
+        <h1 class="mb-5">Oranges <span class="badge badge-secondary">4</span></h1></h1>
+        <h1 class="mb-5">Chicken <span class="badge badge-secondary">5</span></h1></h1>
+        <h1 class="mb-5">Bread <span class="badge badge-secondary">10</span></h1></h1>
+        <h1 class="mb-5">Milk<span class="badge badge-secondary">1</span></h1></h1> -->
+                    <!-- </div> -->
+                </div>
+                <style>
+                    .th {
+                        color: white
                     }
 
-                    function productBuildTableRow() {
-                        var ret = "<tr>" +
-                            "<td>" +
-                            "<button type='button' onclick='productDisplay(this);' class='btn btn-dark'>" +
-                            "<span class='glyphicon glyphicon-edit' />U" +
-                            "</button>" +
-                            "</td>" +
-                            "<td>" + $("#addItem").val() + "</td>" +
-                            "<td>" + $("#amount").val() + "</td>" +
-                            "<td>" +
-                            "<button type='button' onclick='productDelete(this);' class='btn btn-dark'>" +
-                            "<span class='glyphicon glyphicon-remove' />X" +
-                            "</button>" +
-                            "</td>" +
-                            "</tr>"
-
-                        return ret;
+                    .h1 {
+                        position: center;
                     }
 
-                    function productUpdateInTable() {
-                        // Add changed product to table
-                        $(_row).after(productBuildTableRow());
-
-                        // Remove old product row
-                        $(_row).remove();
-
-                        // Clear form fields
-                        formClear();
-
-                        // Change Update Button Text
-                        $("#updateButton").text("Add");
+                    .dropdownMenuButton {
+                        position: right;
                     }
 
-                    function productDisplay(ctl) {
-                        _row = $(ctl).parents("tr");
-                        var cols = _row.children("td");
-                        $("#addItem").val($(cols[1]).text());
-                        $("#amount").val($(cols[2]).text());
-
-                        // Change Update Button Text
-                        $("#updateButton").text("Update");
+                    .btn-btn-secondary dropdown-toggle {
+                        position: right;
                     }
-
-                    function productDelete(ctl) {
-                        $(ctl).parents("tr").remove();
-                    }
-
-                    function formClear() {
-                        $("#addItem").val("");
-                        $("#amount").val("");
-                    }
-
-
-                </script>
-
-                <!-- <h1 class="mb-5">Apples <span class="badge badge-secondary"></span></h1></h1>
-            <div class="header-content mx-auto">
-              <button class="btn btn-dark" type="button" id="10">
-                <span class="glyphicon glyphicon-thumbs-up"></span>
-                <span class="text">Liked</span>
-                <span class="badge like-badge">1</span>
-            </button>
-            <h1 class="mb-5">Carrots <span class="badge badge-secondary">8</span></h1></h1>
-            <h1 class="mb-5">Oranges <span class="badge badge-secondary">4</span></h1></h1>
-            <h1 class="mb-5">Chicken <span class="badge badge-secondary">5</span></h1></h1>
-            <h1 class="mb-5">Bread <span class="badge badge-secondary">10</span></h1></h1>
-            <h1 class="mb-5">Milk<span class="badge badge-secondary">1</span></h1></h1> -->
-
-                <!-- </div> -->
-            </div>
-            <style>
-                .th {
-                    color: white
-                }
-
-                .h1 {
-                    position: center;
-                }
-
-                .dropdownMenuButton {
-                    position: right;
-                }
-
-                .btn-btn-secondary dropdown-toggle {
-                    position: right;
-                }
-            </style>
+                </style>
 
 
 
