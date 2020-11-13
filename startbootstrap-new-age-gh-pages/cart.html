@@ -1,114 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
-
+​
 <head>
-
+​
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
-  <title>New Age - Start Bootstrap Theme</title>
-
+​
+  <title>Smart Fridge App</title>
+​
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+​
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-
+​
   <!-- Plugin CSS -->
   <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
-
+​
   <!-- Custom styles for this template -->
   <link href="css/new-age.min.css" rel="stylesheet">
-
-</head>
-
+​
+  </head>
+​
 <body id="page-top">
-
-
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
-        <div class="col-lg-7 my-auto">
-          <div class="header-content mx-auto">
-            <h1 class="mb-5">New Age is an app landing page that will help you beautifully showcase your new mobile app, or anything else!</h1>
-            <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">Start Now for Free!</a>
+          <div class="col-lg-7 my-auto">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-primary" onclick="produceSwitch()">Produce 🥦</button>
+                  <button type="button" class="btn btn-primary" onclick="dairySwitch()">Dairy 🐄</button>
+                  <button type="button" class="btn btn-primary" onclick="meatSwitch()">Meat/Fish 🍖</button>
+                  <button type="button" class="btn btn-primary" onclick="grainSwitch()">Grains 🌾</button>
+                  <button type="button" class="btn btn-primary" onclick="frozenSwitch()">Frozen 🥶</button>
+                  <button type="button" class="btn btn-primary">Search 🔎</button>
+              </div>
+
+              <div class="header-content mx-auto" id="produce" style="display: block">
+                  <h2 class="mb-5"> </h2>
+                  <h2 class="mb-5"> 📈 Trending Produce </h2>
+                  <h2 class="mb-5">🍌 Bananas <span class="badge badge-danger" onclick="decrement('ban')">-</span><span class="badge badge-secondary" id="ban">0</span><span class="badge badge-success" onclick="increment('ban')">+</span></h2>
+                  <h2 class="mb-5">🍎 Apples <span class="badge badge-danger" onclick="decrement('app')">-</span><span class="badge badge-secondary" id="app">0</span><span class="badge badge-success" onclick="increment('app')">+</span></h2>
+                  <h2 class="mb-5">🍇 Grapes <span class="badge badge-danger" onclick="decrement('grap')">-</span><span class="badge badge-secondary" id="grap">0</span><span class="badge badge-success" onclick="increment('grap')">+</span></h2>
+                  <h2 class="mb-5">🍓 Strawberry <span class="badge badge-danger" onclick="decrement('stra')">-</span><span class="badge badge-secondary" id="stra">0</span><span class="badge badge-success" onclick="increment('stra')">+</span></h2>
+                  <h2 class="mb-5">🍊 Oranges <span class="badge badge-danger" onclick="decrement('oran')">-</span><span class="badge badge-secondary" id="oran">0</span><span class="badge badge-success" onclick="increment('oran')">+</span></h2>
+                  <h2 class="mb-5">🍉 Watermelon <span class="badge badge-danger" onclick="decrement('wate')">-</span><span class="badge badge-secondary" id="wate">0</span><span class="badge badge-success" onclick="increment('wate')">+</span></h2>
+              </div>
+              <div class="header-content mx-auto" id="dairy" style="display: none">
+                  <h2 class="mb-5"> </h2>
+                  <h2 class="mb-5"> 📈 Trending Dairy </h2>
+                  <h2 class="mb-5">🥛 Milk <span class="badge badge-danger" onclick="decrement('milk')">-</span><span class="badge badge-secondary" id="milk">0</span><span class="badge badge-success" onclick="increment('milk')">+</span></h2>
+                  <h2 class="mb-5">🧈 Butter <span class="badge badge-danger" onclick="decrement('but')">-</span><span class="badge badge-secondary" id="but">0</span><span class="badge badge-success" onclick="increment('but')">+</span></h2>
+                  <h2 class="mb-5">🧀 Cheddar <span class="badge badge-danger" onclick="decrement('ched')">-</span><span class="badge badge-secondary" id="ched">0</span><span class="badge badge-success" onclick="increment('ched')">+</span></h2>
+                  <h2 class="mb-5">🧀 American <span class="badge badge-danger" onclick="decrement('amer')">-</span><span class="badge badge-secondary" id="amer">0</span><span class="badge badge-success" onclick="increment('amer')">+</span></h2>
+                  <h2 class="mb-5">🧀 Swiss <span class="badge badge-danger" onclick="decrement('swis')">-</span><span class="badge badge-secondary" id="swis">0</span><span class="badge badge-success" onclick="increment('swis')">+</span></h2>
+                  <h2 class="mb-5">🥄 Yogurt <span class="badge badge-danger" onclick="decrement('yogu')">-</span><span class="badge badge-secondary" id="yogu">0</span><span class="badge badge-success" onclick="increment('yogu')">+</span></h2>
+              </div>
+              <div class="header-content mx-auto" id="meatfish" style="display: none">
+                  <h2 class="mb-5"> </h2>
+                  <h2 class="mb-5"> 📈 Trending Meat/Fish </h2>
+                  <h2 class="mb-5">🥓 Pork <span class="badge badge-danger" onclick="decrement('pork')">-</span><span class="badge badge-secondary" id="pork">0</span><span class="badge badge-success" onclick="increment('pork')">+</span></h2>
+                  <h2 class="mb-5">🍣  Tuna <span class="badge badge-danger" onclick="decrement('tuna')">-</span><span class="badge badge-secondary" id="tuna">0</span><span class="badge badge-success" onclick="increment('tuna')">+</span></h2>
+                  <h2 class="mb-5">🍗 Chicken <span class="badge badge-danger" onclick="decrement('chic')">-</span><span class="badge badge-secondary" id="chic">0</span><span class="badge badge-success" onclick="increment('chic')">+</span></h2>
+                  <h2 class="mb-5">🍔 Beef <span class="badge badge-danger" onclick="decrement('beef')">-</span><span class="badge badge-secondary" id="beef">0</span><span class="badge badge-success" onclick="increment('beef')">+</span></h2>
+                  <h2 class="mb-5">🦃 Turkey <span class="badge badge-danger" onclick="decrement('turk')">-</span><span class="badge badge-secondary" id="turk">0</span><span class="badge badge-success" onclick="increment('turk')">+</span></h2>
+                  <h2 class="mb-5">🍤 Shrimp <span class="badge badge-danger" onclick="decrement('shri')">-</span><span class="badge badge-secondary" id="shri">0</span><span class="badge badge-success" onclick="increment('shri')">+</span></h2>
+              </div>
+              <div class="header-content mx-auto" id="grains" style="display: none">
+                  <h2 class="mb-5"> </h2>
+                  <h2 class="mb-5"> 📈 Trending Grains </h2>
+                  <h2 class="mb-5">🌾 Oats <span class="badge badge-danger" onclick="decrement('oat')">-</span><span class="badge badge-secondary" id="oat">0</span><span class="badge badge-success" onclick="increment('oat')">+</span></h2>
+                  <h2 class="mb-5">🍞 Bread <span class="badge badge-danger" onclick="decrement('bre')">-</span><span class="badge badge-secondary" id="bre">0</span><span class="badge badge-success" onclick="increment('bre')">+</span></h2>
+                  <h2 class="mb-5">🥞 Pancakes <span class="badge badge-danger" onclick="decrement('panc')">-</span><span class="badge badge-secondary" id="panc">0</span><span class="badge badge-success" onclick="increment('panc')">+</span></h2>
+                  <h2 class="mb-5">🧇 Waffles <span class="badge badge-danger" onclick="decrement('waff')">-</span><span class="badge badge-secondary" id="waff">0</span><span class="badge badge-success" onclick="increment('waff')">+</span></h2>
+                  <h2 class="mb-5">🍝 Spaghetti <span class="badge badge-danger" onclick="decrement('spag')">-</span><span class="badge badge-secondary" id="spag">0</span><span class="badge badge-success" onclick="increment('spag')">+</span></h2>
+                  <h2 class="mb-5">🍰 Cakes <span class="badge badge-danger" onclick="decrement('cake')">-</span><span class="badge badge-secondary" id="cake">0</span><span class="badge badge-success" onclick="increment('cake')">+</span></h2>
+              </div>
+              <div class="header-content mx-auto" id="frozen" style="display: none">
+                  <h2 class="mb-5"> </h2>
+                  <h2 class="mb-5"> 📈 Trending Frozen </h2>
+                  <h2 class="mb-5">🍕 Pizza <span class="badge badge-danger" onclick="decrement('piz')">-</span><span class="badge badge-secondary" id="piz">0</span><span class="badge badge-success" onclick="increment('piz')">+</span></h2>
+                  <h2 class="mb-5">🌭 Hot Dogs <span class="badge badge-danger" onclick="decrement('hot')">-</span><span class="badge badge-secondary" id="hot">0</span><span class="badge badge-success" onclick="increment('hot')">+</span></h2>
+                  <h2 class="mb-5">🍨 Ice Cream <span class="badge badge-danger" onclick="decrement('icm')">-</span><span class="badge badge-secondary" id="icm">0</span><span class="badge badge-success" onclick="increment('icm')">+</span></h2>
+                  <h2 class="mb-5">🍸 Vodka <span class="badge badge-danger" onclick="decrement('vod')">-</span><span class="badge badge-secondary" id="vod">0</span><span class="badge badge-success" onclick="increment('vod')">+</span></h2>
+                  <h2 class="mb-5">🧊 Pack Ice <span class="badge badge-danger" onclick="decrement('ice')">-</span><span class="badge badge-secondary" id="ice">0</span><span class="badge badge-success" onclick="increment('ice')">+</span></h2>
+                  <h2 class="mb-5">🍧 Italian Ice <span class="badge badge-danger" onclick="decrement('ita')">-</span><span class="badge badge-secondary" id="ita">0</span><span class="badge badge-success" onclick="increment('ita')">+</span></h2>
+              </div>
+              <div class="btn-group">
+                  <button type="button" class="btn btn-primary" onclick="reset()">Clear Cart ❌</button>
+                  <button type="button" class="btn btn-primary" onclick="addCart()">Add Cart to Inventory 🛒</button>
+                  <button type="button" class="btn btn-primary">Mobile Update  📲🔁</button>
+              </div>
+              <script>
+                  var p = document.getElementById("produce");
+                  var d = document.getElementById("dairy");
+                  var m = document.getElementById("meatfish");
+                  var g = document.getElementById("grains");
+                  var f = document.getElementById("frozen");
+                  function produceSwitch() {
+                      p.style.display = "block";
+                      d.style.display = "none";
+                      m.style.display = "none";
+                      g.style.display = "none";
+                      f.style.display = "none";
+                  }
+                  function dairySwitch() {
+                      p.style.display = "none";
+                      d.style.display = "block";
+                      m.style.display = "none";
+                      g.style.display = "none";
+                      f.style.display = "none";
+                  }
+                  function meatSwitch() {
+                      p.style.display = "none";
+                      d.style.display = "none";
+                      m.style.display = "block";
+                      g.style.display = "none";
+                      f.style.display = "none";
+                  }
+                  function grainSwitch() {
+                      p.style.display = "none";
+                      d.style.display = "none";
+                      m.style.display = "none";
+                      g.style.display = "block";
+                      f.style.display = "none";
+                  }
+                  function frozenSwitch() {
+                      p.style.display = "none";
+                      d.style.display = "none";
+                      m.style.display = "none";
+                      g.style.display = "none";
+                      f.style.display = "block";
+                  }
+                  function decrement(id) {
+                      num = Number.parseInt(document.getElementById(id).innerHTML) - 1;
+                      if (num >= 0) {
+                          document.getElementById(id).innerHTML = num;
+                      } else {
+                          document.getElementById(id).innerHTML = 0;
+                      }
+                  }
+                  function increment(id) {
+                      num = Number.parseInt(document.getElementById(id).innerHTML) + 1;
+                      document.getElementById(id).innerHTML = num;
+                  }
+                  function reset() {
+                      var all_foods = ["ban", "app", "grap", "stra", "oran", "wate", "milk", "but", "amer", "ched", "swis", "yogu", "pork", "beef", "chic", "shri", "turk", "tuna", "oat", "panc", "waff", "bre", "spag", "cake", "piz", "hot", "icm", "ice", "vod", "ita"];
+                      var i = 0;
+                      for (i; i < all_foods.length; i++) {
+                          var curr = document.getElementById(all_foods[i]);
+                          curr.innerHTML = 0;
+                      }
+                  }
+                  function addCart() {
+                      var pre_string = {Bananas: 0, Apples: 0, Grapes: 0, Strawberries: 0, Oranges: 0, Watermelons: 0, Milk: 0, Butter: 0, American: 0, Cheddar: 0, Swiss: 0, Yogurt: 0, Pork: 0, Beef: 0, Chicken: 0, Shrimp: 0, Turkey: 0, Tuna: 0, Oats: 0, Pancakes: 0, Waffles: 0, Bread: 0, Spaghetti: 0, Cakes: 0, Pizzas: 0, Hot_Dogs: 0, Ice_Cream: 0, Vodka: 0, Italian_Ices: 0};
+                      pre_string.Bananas = Number.parseInt(document.getElementById("ban").innerHTML);
+                      pre_string.Apples = Number.parseInt(document.getElementById("app").innerHTML);
+                      pre_string.Grapes = Number.parseInt(document.getElementById("grap").innerHTML);
+                      pre_string.Strawberries = Number.parseInt(document.getElementById("stra").innerHTML);
+                      pre_string.Oranges = Number.parseInt(document.getElementById("oran").innerHTML);
+                      pre_string.Watermelons = Number.parseInt(document.getElementById("wate").innerHTML);
+                      pre_string.Milk = Number.parseInt(document.getElementById("milk").innerHTML);
+                      pre_string.Butter = Number.parseInt(document.getElementById("but").innerHTML);
+                      pre_string.American = Number.parseInt(document.getElementById("amer").innerHTML);
+                      pre_string.Cheddar = Number.parseInt(document.getElementById("ched").innerHTML);
+                      pre_string.Swiss = Number.parseInt(document.getElementById("swis").innerHTML);
+                      pre_string.Yogurt = Number.parseInt(document.getElementById("yogu").innerHTML);
+                      pre_string.Pork = Number.parseInt(document.getElementById("pork").innerHTML);
+                      pre_string.Beef = Number.parseInt(document.getElementById("beef").innerHTML);
+                      pre_string.Chicken = Number.parseInt(document.getElementById("chic").innerHTML);
+                      pre_string.Shrimp = Number.parseInt(document.getElementById("shri").innerHTML);
+                      pre_string.Turkey = Number.parseInt(document.getElementById("turk").innerHTML);
+                      pre_string.Tuna = Number.parseInt(document.getElementById("tuna").innerHTML);
+                      pre_string.Oats = Number.parseInt(document.getElementById("oat").innerHTML);
+                      pre_string.Pancakes = Number.parseInt(document.getElementById("panc").innerHTML);
+                      pre_string.Waffles = Number.parseInt(document.getElementById("waff").innerHTML);
+                      pre_string.Bread = Number.parseInt(document.getElementById("bre").innerHTML);
+                      pre_string.Spaghetti = Number.parseInt(document.getElementById("spag").innerHTML);
+                      pre_string.Cakes = Number.parseInt(document.getElementById("cake").innerHTML);
+                      pre_string.Pizzas = Number.parseInt(document.getElementById("but").innerHTML);
+                      pre_string.Hot_Dogs = Number.parseInt(document.getElementById("hot").innerHTML);
+                      pre_string.Ice_Cream = Number.parseInt(document.getElementById("icm").innerHTML);
+                      pre_string.Vodka = Number.parseInt(document.getElementById("vod").innerHTML);
+                      pre_string.Italian_Ices = Number.parseInt(document.getElementById("ita").innerHTML);
+                      var obj = JSON.stringify(pre_string);
+                      window.document.location = './inventory.html' + '?json=' + obj;
+                  }
+              </script>
           </div>
-        </div>
         <div class="col-lg-5 my-auto">
+
+          <div style="text-align: right; padding-top:50%">
+            <a href="index.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:13px; left: 60%;bottom: 0;">Return to Homepage</a>
+          </div>
           <div class="device-container">
-            <div class="device-mockup iphone6_plus portrait white">
               <div class="device">
-                <div class="screen">
-                  <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                  <img src="img/demo-screen-1.jpg" class="img-fluid" alt="">
-                </div>
                 <div class="button">
                   <!-- You can hook the "home button" to some JavaScript events or just remove it -->
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  
-  <section class="contact bg-primary" id="contact">
-    <div class="container">
-      <ul class="list-inline list-social">
-        <li class="list-inline-item social-twitter">
-          <a href="#">
-            <i class="fab"></i>
-          </a>
-        </li>
-        <li class="list-inline-item social-facebook">
-          <a href="#">
-            <i class="fab"></i>
-          </a>
-        </li>
-        <li class="list-inline-item social-google-plus">
-          <a href="#">
-            <i class="fab"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>&copy; Your Website 2020. All Rights Reserved.</p>
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a href="#">Privacy</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">Terms</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">FAQ</a>
-        </li>
-      </ul>
-    </div>
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
+​
   <!-- Custom scripts for this template -->
   <script src="js/new-age.min.js"></script>
-
+​
+​
+  <style>
+​
+    .h2{
+      position: center;
+    }
+    .dropdownMenuButton {
+      position: right;
+    }
+​
+    .btn-btn-secondary dropdown-toggle{
+      position: right;
+    }
+    </style>
 </body>
-
+​
 </html>

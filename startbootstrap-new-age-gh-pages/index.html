@@ -28,7 +28,7 @@
 
 </head>
 
-<body id="page-top" onload="setTime()">
+<body id="page-top" onload="setTime(); scrollRecipes()">
 
 
   <header class="masthead">
@@ -36,26 +36,26 @@
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
-            <h1 class="mb-5 time" id="time">The time</h1>
-            <a href="" class="btn btn-outline btn-xl js-scroll-trigger">Check out the recipe!</a>
+            <h1 class="time mb-5" style="font-size:70px">Welcome Jacob!</h1>
+            <h1 class="time mb-5" id="time" style="font-size:80px">The time</h1>
           </div>
         </div>
         <div class="col-lg-5 my-auto">
           <div class="container">
-            <h1 class="mb-5 trending-header">Trending &#128200;</h1>
+            <h1 class="mb-5 trending-header" style="font-size:70px">Trending &#128200;</h1>
             <div class="pages">
-              <q>Recipe #1: Information about recipe... blahblahblahblahblahblahblah</q>
-              <!-- <p class="author">- </p> -->
+              <q>Suggested: Fruit Smoothie</q>
+              <p><i>Popular with users with fruit in inventory</i></p>
             </div>
 
             <div class="pages">
-              <q>Recipe #2: Information about recipe... blahblahblahblahblahblahblah</q>
-              <!-- <p class="author">- </p> -->
+              <q>Suggested: Flourless Peanut Butter Cookies</q>
+              <p><i>Popular with users in college</i></p>
             </div>
 
             <div class="pages">
-              <q>Recipe #3: Information about recipe... blahblahblahblahblahblahblah</q>
-              <!-- <p class="author">- </p> -->
+              <q>Suggested: Biscuits</q>
+              <p><i>Popular for breakfast</i></p>
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -67,41 +67,43 @@
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
           </div>
+
+          <div style="text-align: center;">
+            <a href="javascript:seeRecipe()" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:13px; left: 50%;">Check out the recipe!</a>
+          </div>
         </div>
+
+        <div class="my-auto contact" style="width:100%; text-align: center;">
+            <ul class="list-inline list-social">
+              <a href="users.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:12px; left: 50%">Switch Users</a>
+              <a href="cart.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:12px; left: 50%">Check Cart</a>
+              <a href="inventory.html" class="btn btn-outline btn-xl js-scroll-trigger" style="font-size:12px; left: 50%">Check Inventory</a>
+              <!-- <li class="list-inline-item social-twitter">
+                <a href="users.html">
+                  <i class="fab" >
+                  	<img src="test_img.jpg" height="30" width="30">
+                  </i>
+                </a>
+              </li>
+              <li class="list-inline-item social-facebook">
+                <a href="cart.html">
+                  <i class="fab"></i>
+                </a>
+              </li>
+              <li class="list-inline-item social-google-plus">
+                <a href="inventory.html">
+                  <i class="fab"></i>
+                </a>
+              </li> -->
+            </ul>
+          </div>
       </div>
     </div>
   </header>
 
-
-
-  <section class="contact bg-primary" id="contact">
-    <div class="container">
-
-      <ul class="list-inline list-social">
-        <li class="list-inline-item social-twitter">
-          <a href="users.html">
-            <i class="fab" >
-            	<img src="test_img.jpg" height="30" width="30">
-            </i>
-          </a>
-        </li>
-        <li class="list-inline-item social-facebook">
-          <a href="cart.html">
-            <i class="fab"></i>
-          </a>
-        </li>
-        <li class="list-inline-item social-google-plus">
-          <a href="inventory.html">
-            <i class="fab"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
-
   <footer>
     <div class="container">
-      <p>Welcome, Jacob</p>
+
     </div>
   </footer>
 
@@ -121,9 +123,10 @@
     }
 
     .time {
-      margin-top: 30px;
-      padding: 30px;
-      margin-left: 20px;
+      margin-top: 60px;
+      /* padding: 30px; */
+      margin-right: 50px;
+      font-size: 100px;
     }
 
     .trending-header {
@@ -183,9 +186,15 @@
   </style>
 
   <script>
-    var index = 1;
+    var index = 3;
 
     showSlides(index);
+
+    function scrollRecipes() {
+      setTimeout(scrollRecipes, 4000);
+      index = (index + 1) % 3;
+      showSlides(index);
+    }
 
     function showSlides(n) {
       var i;
@@ -242,6 +251,10 @@
       }
 
       return i;
+    }
+
+    function seeRecipe() {
+      window.location = "recipe" + index + ".html"
     }
   </script>
 
