@@ -184,13 +184,13 @@
                       pre_string.Bread = Number.parseInt(document.getElementById("bre").innerHTML);
                       pre_string.Spaghetti = Number.parseInt(document.getElementById("spag").innerHTML);
                       pre_string.Cakes = Number.parseInt(document.getElementById("cake").innerHTML);
-                      pre_string.Pizzas = Number.parseInt(document.getElementById("but").innerHTML);
+                      pre_string.Pizzas = Number.parseInt(document.getElementById("piz").innerHTML);
                       pre_string.Hot_Dogs = Number.parseInt(document.getElementById("hot").innerHTML);
                       pre_string.Ice_Cream = Number.parseInt(document.getElementById("icm").innerHTML);
                       pre_string.Vodka = Number.parseInt(document.getElementById("vod").innerHTML);
                       pre_string.Italian_Ices = Number.parseInt(document.getElementById("ita").innerHTML);
                       var obj = JSON.stringify(pre_string);
-                      window.document.location = './inventory.html' + '?json=' + obj;
+                      window.document.location = './inventory.html' + '?Bananas=' + pre_string.Bananas + '&Apples=' + pre_string.Apples + '&Grapes=' + pre_string.Grapes + '&Strawberries=' + pre_string.Strawberries + '&Oranges=' + pre_string.Oranges + '&Watermelons=' + pre_string.Watermelons + '&Milk=' + pre_string.Milk + '&Butter=' + pre_string.Butter + '&American=' + pre_string.American + '&Cheddar=' + pre_string.Cheddar + '&Swiss=' + pre_string.Swiss + '&Yogurt=' + pre_string.Yogurt + '&Pork=' + pre_string.Pork + '&Beef=' + pre_string.Beef + '&Chicken=' + pre_string.Chicken + '&Shrimp=' + pre_string.Shrimp + '&Turkey=' + pre_string.Turkey + '&Tuna=' + pre_string.Tuna + '&Oats=' + pre_string.Oats + '&Pancakes=' + pre_string.Pancakes + '&Waffles=' + pre_string.Waffles + '&Bread=' + pre_string.Bread + '&Spaghetti=' + pre_string.Spaghetti + '&Cakes=' + pre_string.Cakes + '&Pizzas=' + pre_string.Pizzas + '&Hot Dogs=' + pre_string.Hot_Dogs + '&Ice Cream=' + pre_string.Ice_Cream + '&Vodka=' + pre_string.Vodka + '&Italian Ices=' + pre_string.Italian_Ices;
                   }
               </script>
           </div>
